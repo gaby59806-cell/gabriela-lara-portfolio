@@ -9,38 +9,65 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as LinkedinRouteImport } from './routes/linkedin'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ApiPublicLinkedinRouteImport } from './routes/api/public/linkedin'
 
+const LinkedinRoute = LinkedinRouteImport.update({
+  id: '/linkedin',
+  path: '/linkedin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const IndexRoute = IndexRouteImport.update({
   id: '/',
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiPublicLinkedinRoute = ApiPublicLinkedinRouteImport.update({
+  id: '/api/public/linkedin',
+  path: '/api/public/linkedin',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
+  '/linkedin': typeof LinkedinRoute
+  '/api/public/linkedin': typeof ApiPublicLinkedinRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
+  '/linkedin': typeof LinkedinRoute
+  '/api/public/linkedin': typeof ApiPublicLinkedinRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
+  '/linkedin': typeof LinkedinRoute
+  '/api/public/linkedin': typeof ApiPublicLinkedinRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
-  fullPaths: '/'
+  fullPaths: '/' | '/linkedin' | '/api/public/linkedin'
   fileRoutesByTo: FileRoutesByTo
-  to: '/'
-  id: '__root__' | '/'
+  to: '/' | '/linkedin' | '/api/public/linkedin'
+  id: '__root__' | '/' | '/linkedin' | '/api/public/linkedin'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
+  LinkedinRoute: typeof LinkedinRoute
+  ApiPublicLinkedinRoute: typeof ApiPublicLinkedinRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/linkedin': {
+      id: '/linkedin'
+      path: '/linkedin'
+      fullPath: '/linkedin'
+      preLoaderRoute: typeof LinkedinRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/': {
       id: '/'
       path: '/'
@@ -48,11 +75,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/public/linkedin': {
+      id: '/api/public/linkedin'
+      path: '/api/public/linkedin'
+      fullPath: '/api/public/linkedin'
+      preLoaderRoute: typeof ApiPublicLinkedinRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
+  LinkedinRoute: LinkedinRoute,
+  ApiPublicLinkedinRoute: ApiPublicLinkedinRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
