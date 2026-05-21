@@ -49,6 +49,10 @@ function Portfolio() {
   const [active, setActive] = useState("inicio");
   const [open, setOpen] = useState(false);
 
+  const openExternalLink = (url: string) => {
+    window.open(url, "_blank", "noopener,noreferrer");
+  };
+
   useEffect(() => {
     const obs = new IntersectionObserver(
       (entries) => {
@@ -265,7 +269,10 @@ function Portfolio() {
                 </div>
                 <ArrowUpRight className="h-4 w-4 text-muted-foreground" />
               </a>
-              <a href="https://github.com/gaby59806-cell" target="_blank" rel="noreferrer" className="flex items-center justify-between gap-4 rounded-2xl bg-card border border-border p-5 hover:-translate-y-0.5 transition shadow-card">
+              <a href="https://github.com/gaby59806-cell" target="_blank" rel="noopener noreferrer" onClick={(event) => {
+                event.preventDefault();
+                openExternalLink("https://github.com/gaby59806-cell");
+              }} className="flex items-center justify-between gap-4 rounded-2xl bg-card border border-border p-5 hover:-translate-y-0.5 transition shadow-card">
                 <div className="flex items-center gap-3">
                   <span className="h-10 w-10 rounded-xl gradient-primary grid place-items-center text-primary-foreground">
                     <Github className="h-4 w-4" />
@@ -277,7 +284,10 @@ function Portfolio() {
                 </div>
                 <ArrowUpRight className="h-4 w-4 text-muted-foreground" />
               </a>
-              <a href="https://www.linkedin.com/in/gabriela-lara-garavi-22793340b/?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3Bl4QXZ6u1RuOdSE6j0uvVkw%3D%3D" target="_blank" rel="noreferrer" className="flex items-center justify-between gap-4 rounded-2xl bg-card border border-border p-5 hover:-translate-y-0.5 transition shadow-card">
+              <a href="https://www.linkedin.com/in/gabriela-lara-garavi-22793340b/" target="_blank" rel="noopener noreferrer" onClick={(event) => {
+                event.preventDefault();
+                openExternalLink("https://www.linkedin.com/in/gabriela-lara-garavi-22793340b/");
+              }} className="flex items-center justify-between gap-4 rounded-2xl bg-card border border-border p-5 hover:-translate-y-0.5 transition shadow-card">
                 <div className="flex items-center gap-3">
                   <span className="h-10 w-10 rounded-xl gradient-primary grid place-items-center text-primary-foreground">
                     <Linkedin className="h-4 w-4" />
