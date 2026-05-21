@@ -287,7 +287,7 @@ function Portfolio() {
                 </div>
                 <ArrowUpRight className="h-4 w-4 text-muted-foreground" />
               </a>
-              <a href="/api/public/linkedin" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between gap-4 rounded-2xl bg-card border border-border p-5 hover:-translate-y-0.5 transition shadow-card">
+              <a href="/linkedin" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between gap-4 rounded-2xl bg-card border border-border p-5 hover:-translate-y-0.5 transition shadow-card">
                 <div className="flex items-center gap-3">
                   <span className="h-10 w-10 rounded-xl gradient-primary grid place-items-center text-primary-foreground">
                     <Linkedin className="h-4 w-4" />
