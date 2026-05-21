@@ -1,3 +1,4 @@
+import type { MouseEvent } from "react";
 import { createFileRoute } from "@tanstack/react-router";
 import { useState, useEffect } from "react";
 import { Github, Mail, Linkedin, Code2, Palette, Sparkles, Layout, Heart, ArrowUpRight, Menu, X } from "lucide-react";
@@ -49,8 +50,8 @@ function Portfolio() {
   const [active, setActive] = useState("inicio");
   const [open, setOpen] = useState(false);
 
-  const openInNewTab = (event: React.MouseEvent<HTMLAnchorElement>, url: string) => {
-    const newWindow = window.open(url, "_blank");
+  const openInNewTab = (event: MouseEvent<HTMLAnchorElement>, url: string) => {
+    const newWindow = window.open(url, "_blank", "noopener,noreferrer");
 
     if (newWindow) {
       newWindow.opener = null;
@@ -286,7 +287,7 @@ function Portfolio() {
                 </div>
                 <ArrowUpRight className="h-4 w-4 text-muted-foreground" />
               </a>
-              <a href="https://www.linkedin.com/in/gabriela-lara-garavi-22793340b/" target="_blank" rel="noopener noreferrer" onClick={(event) => openInNewTab(event, "https://www.linkedin.com/in/gabriela-lara-garavi-22793340b/")} className="flex items-center justify-between gap-4 rounded-2xl bg-card border border-border p-5 hover:-translate-y-0.5 transition shadow-card">
+              <a href="/api/public/linkedin" target="_blank" rel="noopener noreferrer" className="flex items-center justify-between gap-4 rounded-2xl bg-card border border-border p-5 hover:-translate-y-0.5 transition shadow-card">
                 <div className="flex items-center gap-3">
                   <span className="h-10 w-10 rounded-xl gradient-primary grid place-items-center text-primary-foreground">
                     <Linkedin className="h-4 w-4" />
