@@ -277,17 +277,18 @@ function Portfolio() {
                 </div>
                 <ArrowUpRight className="h-4 w-4 text-muted-foreground" />
               </a>
-              <div className="flex items-center justify-between gap-4 rounded-2xl bg-card/60 border border-dashed border-border p-5">
+              <a href="https://www.linkedin.com/in/gabriela-lara-garavi-22793340b" target="_blank" rel="noreferrer" className="flex items-center justify-between gap-4 rounded-2xl bg-card border border-border p-5 hover:-translate-y-0.5 transition shadow-card">
                 <div className="flex items-center gap-3">
-                  <span className="h-10 w-10 rounded-xl bg-primary-soft/60 grid place-items-center text-primary">
+                  <span className="h-10 w-10 rounded-xl gradient-primary grid place-items-center text-primary-foreground">
                     <Linkedin className="h-4 w-4" />
                   </span>
                   <div>
                     <p className="text-xs text-muted-foreground">LinkedIn</p>
-                    <p className="text-sm font-medium">En proceso de creación</p>
+                    <p className="text-sm font-medium">gabriela-lara-garavi</p>
                   </div>
                 </div>
-              </div>
+                <ArrowUpRight className="h-4 w-4 text-muted-foreground" />
+              </a>
             </div>
           </div>
         </div>
