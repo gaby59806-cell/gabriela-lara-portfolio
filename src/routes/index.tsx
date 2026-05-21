@@ -50,7 +50,29 @@ function Portfolio() {
   const [open, setOpen] = useState(false);
 
   const openExternalLink = (url: string) => {
-    window.open(url, "_blank", "noopener,noreferrer");
+    if (typeof window === "undefined") return;
+
+    if (window.self !== window.top) {
+      try {
+        window.top?.location.assign(url);
+        return;
+      } catch {
+      }
+    }
+
+    const popup = window.open(url, "_blank", "noopener,noreferrer");
+    if (popup) {
+      popup.opener = null;
+      return;
+    }
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.target = window.self !== window.top ? "_top" : "_blank";
+    link.rel = "noopener noreferrer";
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
   };
 
   useEffect(() => {
@@ -269,7 +291,7 @@ function Portfolio() {
                 </div>
                 <ArrowUpRight className="h-4 w-4 text-muted-foreground" />
               </a>
-              <a href="https://github.com/gaby59806-cell" target="_blank" rel="noopener noreferrer" onClick={(event) => {
+              <a href="https://github.com/gaby59806-cell" target="_top" rel="noopener noreferrer" onClick={(event) => {
                 event.preventDefault();
                 openExternalLink("https://github.com/gaby59806-cell");
               }} className="flex items-center justify-between gap-4 rounded-2xl bg-card border border-border p-5 hover:-translate-y-0.5 transition shadow-card">
@@ -284,7 +306,7 @@ function Portfolio() {
                 </div>
                 <ArrowUpRight className="h-4 w-4 text-muted-foreground" />
               </a>
-              <a href="https://www.linkedin.com/in/gabriela-lara-garavi-22793340b/" target="_blank" rel="noopener noreferrer" onClick={(event) => {
+              <a href="https://www.linkedin.com/in/gabriela-lara-garavi-22793340b/" target="_top" rel="noopener noreferrer" onClick={(event) => {
                 event.preventDefault();
                 openExternalLink("https://www.linkedin.com/in/gabriela-lara-garavi-22793340b/");
               }} className="flex items-center justify-between gap-4 rounded-2xl bg-card border border-border p-5 hover:-translate-y-0.5 transition shadow-card">
