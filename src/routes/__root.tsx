@@ -75,10 +75,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { title: "Gabriela Lara — Portafolio | Ingeniería de Software" },
       { name: "description", content: "Portafolio de Gabriela Paola Lara Garaví, estudiante de Ingeniería de Software apasionada por el desarrollo frontend, el diseño web y la creatividad digital." },
       { name: "author", content: "Gabriela Paola Lara Garaví" },
-      { property: "og:title", content: "Gabriela Lara — Portafolio" },
-      { property: "og:description", content: "Desarrollo frontend, diseño web y creatividad digital." },
+      { property: "og:title", content: "Gabriela Lara — Portafolio | Ingeniería de Software" },
+      { property: "og:description", content: "Portafolio de Gabriela Paola Lara Garaví, estudiante de Ingeniería de Software apasionada por el desarrollo frontend, el diseño web y la creatividad digital." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
+      { name: "twitter:title", content: "Gabriela Lara — Portafolio | Ingeniería de Software" },
+      { name: "twitter:description", content: "Portafolio de Gabriela Paola Lara Garaví, estudiante de Ingeniería de Software apasionada por el desarrollo frontend, el diseño web y la creatividad digital." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b744e796-296e-470a-89c3-ef854a050fc7/id-preview-100c149e--b8cb7838-90b9-4009-8c4c-607416324fd9.lovable.app-1779408881175.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/b744e796-296e-470a-89c3-ef854a050fc7/id-preview-100c149e--b8cb7838-90b9-4009-8c4c-607416324fd9.lovable.app-1779408881175.png" },
     ],
     links: [
       {
